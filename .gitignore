@@ -1,0 +1,33 @@
+# Data — dataset lớn, ai cần tự tải từ nguồn gốc
+data/
+
+# Storage — ảnh upload của user lúc runtime
+storage/
+
+# Model weights — file nặng, không commit
+backend/ai_models/segmentation/weights/
+backend/ai_models/vqa/weights/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Environment
+.env
+venv/
+.venv/
+
+# Node.js (frontend React)
+node_modules/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

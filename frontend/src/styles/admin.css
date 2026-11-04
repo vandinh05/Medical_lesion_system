@@ -1,0 +1,225 @@
+/* ============================================================
+   LUMEN — Admin console
+   admin.css — layout & component styles specific to this screen
+   (design tokens, buttons, inputs, badges, table, base modal
+   live in style.css)
+   ============================================================ */
+
+body {
+  min-height: 100vh;
+}
+.admin-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.admin-topbar {
+  background: var(--navy-800);
+  color: #fff;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.admin-mark {
+  width: 40px;
+  height: 50px;
+  display: flex;
+}
+.admin-brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16.5px;
+}
+.admin-brand-name span {
+  color: var(--blue-400);
+}
+.admin-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13.5px;
+}
+.admin-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12.5px;
+}
+.admin-logout {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.admin-logout:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.admin-body {
+  flex: 1;
+  padding: 32px;
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+}
+.admin-header {
+  margin-bottom: 22px;
+}
+.admin-header h1 {
+  font-size: 23px;
+  margin-bottom: 6px;
+}
+.admin-header p {
+  color: var(--text-500);
+  font-size: 14px;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 22px;
+  border-bottom: 1.5px solid var(--border);
+}
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 12px 4px;
+  margin-right: 22px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-500);
+  cursor: pointer;
+  position: relative;
+  top: 1.5px;
+  border-bottom: 2.5px solid transparent;
+  transition: color 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.tab-btn.active {
+  color: var(--navy-900);
+  border-bottom-color: var(--blue-600);
+}
+.tab-btn:hover {
+  color: var(--navy-900);
+}
+.tab-count {
+  background: var(--blue-50);
+  color: var(--blue-600);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 100px;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+.search-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 9px;
+  padding: 8px 12px;
+  width: 260px;
+}
+.search-input input {
+  border: none;
+  outline: none;
+  font-size: 13.5px;
+  flex: 1;
+  font-family: var(--font-body);
+}
+
+.role-pill {
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.role-pill.doctor {
+  background: var(--blue-50);
+  color: var(--blue-600);
+}
+.role-pill.admin {
+  background: var(--navy-900);
+  color: #fff;
+}
+
+.action-pill {
+  background: var(--danger-bg);
+  color: var(--danger-strong);
+  border: none;
+  padding: 7px 9px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+.action-pill:hover {
+  background: #f8d3d9;
+}
+
+.tab-panel {
+  display: none;
+}
+.tab-panel.active {
+  display: block;
+}
+
+.audit-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.audit-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.audit-dot.ok {
+  background: var(--success);
+}
+.audit-dot.fail {
+  background: var(--danger);
+}
+.audit-dot.neutral {
+  background: var(--blue-400);
+}
+
+.create-modal .field {
+  margin-bottom: 16px;
+}

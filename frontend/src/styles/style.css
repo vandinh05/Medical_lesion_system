@@ -1,0 +1,441 @@
+/* ============================================================
+   LUMEN — AI Endoscopy Assistant
+   Shared design tokens & components
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+:root {
+  /* ---- Color: deep clinical navy + sky blue + white ---- */
+  --navy-900: #0b2545;
+  --navy-800: #123363;
+  --navy-700: #1a4380;
+  --blue-600: #1d5fbf;
+  --blue-500: #2e7be0;
+  --blue-400: #5b9cea;
+  --blue-100: #dcebfb;
+  --blue-50: #eef4fc;
+  --app-bg: #f3f7fd;
+  --white: #ffffff;
+
+  --border: #dce6f5;
+  --border-strong: #c2d5ee;
+
+  --text-900: #16213a;
+  --text-600: #42506b;
+  --text-500: #5c6b85;
+  --text-400: #8ca0bf;
+
+  --success: #218f6b;
+  --success-bg: #e3f6ee;
+  --danger: #d6455a;
+  --danger-bg: #fce9ec;
+  --danger-strong: #b7233a;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 1px 2px rgba(11, 37, 69, 0.06);
+  --shadow-md: 0 8px 24px rgba(11, 37, 69, 0.08);
+  --shadow-lg: 0 24px 60px rgba(11, 37, 69, 0.2);
+
+  --font-display: "Sora", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text-900);
+  background: var(--app-bg);
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  color: var(--navy-900);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+p {
+  margin: 0;
+}
+button {
+  font-family: inherit;
+}
+a {
+  color: var(--blue-600);
+  text-decoration: none;
+}
+::selection {
+  background: var(--blue-100);
+}
+:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 11px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.05s ease;
+  white-space: nowrap;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--blue-600);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover {
+  background: #1a54ac;
+}
+.btn-primary:disabled {
+  background: var(--blue-400);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.btn-secondary {
+  background: var(--white);
+  color: var(--navy-800);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover {
+  background: var(--blue-50);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text-500);
+}
+.btn-ghost:hover {
+  background: var(--blue-50);
+  color: var(--navy-800);
+}
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+.btn-danger:hover {
+  background: var(--danger-strong);
+}
+.btn-block {
+  width: 100%;
+}
+.btn-sm {
+  padding: 7px 12px;
+  font-size: 13px;
+  border-radius: 7px;
+}
+.btn-icon {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* ---------------- Inputs ---------------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-600);
+}
+.field input,
+.field select,
+.field textarea {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  padding: 11px 13px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--text-900);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px var(--blue-100);
+  outline: none;
+}
+.field .hint {
+  font-size: 12px;
+  color: var(--text-400);
+}
+.field.error input {
+  border-color: var(--danger);
+}
+.field .error-msg {
+  font-size: 12px;
+  color: var(--danger);
+  font-weight: 500;
+  
+}
+
+/* Segmented control (role picker) */
+.segmented {
+  display: flex;
+  background: var(--blue-50);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  gap: 4px;
+}
+.segmented button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 9px 10px;
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--text-500);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.segmented button.active {
+  background: var(--white);
+  color: var(--navy-900);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------------- Badges ---------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+}
+.badge-danger {
+  background: var(--danger-bg);
+  color: var(--danger-strong);
+}
+.badge-success {
+  background: var(--success-bg);
+  color: var(--success);
+}
+.badge-neutral {
+  background: var(--blue-50);
+  color: var(--text-500);
+}
+.badge-role {
+  background: var(--navy-800);
+  color: #fff;
+  text-transform: capitalize;
+}
+.badge-role.admin {
+  background: var(--blue-600);
+}
+.badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ---------------- Card ---------------- */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------------- Table ---------------- */
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+table.data-table thead th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 12px 18px;
+  border-bottom: 1.5px solid var(--border);
+  background: var(--blue-50);
+}
+table.data-table thead th:first-child {
+  border-radius: var(--radius-md) 0 0 0;
+}
+table.data-table thead th:last-child {
+  border-radius: 0 var(--radius-md) 0 0;
+}
+table.data-table tbody td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-900);
+  vertical-align: middle;
+}
+table.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+table.data-table tbody tr:hover {
+  background: var(--blue-50);
+}
+.mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-600);
+}
+
+/* ---------------- Modal ---------------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 37, 69, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  width: 420px;
+  max-width: 90vw;
+  box-shadow: var(--shadow-lg);
+  padding: 28px;
+  transform: translateY(8px) scale(0.98);
+  opacity: 0;
+  transition:
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+.modal-backdrop.open .modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.modal-header h3 {
+  font-size: 18px;
+}
+.modal-sub {
+  color: var(--text-500);
+  font-size: 13.5px;
+  margin-bottom: 20px;
+}
+.modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-400);
+  font-size: 18px;
+  padding: 4px;
+  line-height: 1;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+/* ---------------- Scrollbar ---------------- */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-400);
+}
+
+/* ---------------- Toast ---------------- */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--navy-900);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.toast .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  flex-shrink: 0;
+}
+.toast.danger .dot {
+  background: var(--danger);
+}
